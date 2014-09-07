@@ -1012,14 +1012,8 @@ public class SensordroneControl extends Activity {
 
         if(intent.hasExtra("isIgnore")) {
             boolean isIgnore = intent.getBooleanExtra("isIgnore", true);
-            if (!isIgnore) {
+            if (isIgnore) {
                 new ProcessNetTask().execute(null, null, null);
-            }else{
-                if(mNotification!=null) {
-                    NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender(mNotification);
-                    wearableOptions.clearActions();
-                    wearableOptions.clearPages();
-                }
             }
         }
     }
@@ -1363,8 +1357,8 @@ public class SensordroneControl extends Activity {
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.car_test));
 
         NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
-        wearableOptions.setDisplayIntent(NotificationUtil.getNullIntent(this, str));
-        wearableOptions.setContentIcon(R.drawable.ic_pause_playcontrol_normal);
+        wearableOptions.setDisplayIntent(NotificationUtil.getPostIntent(this, str));
+        wearableOptions.setContentIcon(R.drawable.ic_playnstop);
         wearableOptions.setContentIconGravity(Gravity.RIGHT|Gravity.BOTTOM);
 
         NotificationCompat.Action callPost = new NotificationCompat.Action.Builder(
@@ -1376,7 +1370,7 @@ public class SensordroneControl extends Activity {
                 NotificationUtil.getNullIntent(this, str)
         ).build();
 
-        wearableOptions.addAction(callPost).addAction(ignoreAction);
+        wearableOptions.addAction(callPost); //.addAction(ignoreAction);
 
         builder.extend(wearableOptions);
 

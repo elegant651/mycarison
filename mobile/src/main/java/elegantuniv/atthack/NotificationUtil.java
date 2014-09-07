@@ -38,7 +38,7 @@ public class NotificationUtil {
 
         Intent intent = new Intent(context, SensordroneControl.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        intent.putExtra("isIgnore", false);
+        intent.putExtra("isIgnore", true);
         intent.putExtra("tst", 1);
         return PendingIntent.getActivity(context, 2, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }

@@ -28,11 +28,12 @@ public class SmsReceiver extends BroadcastReceiver {
             msgs = new SmsMessage[pdus.length];
             for (int i=0; i<msgs.length; i++){
                 msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                str += "SMS from " + msgs[i].getOriginatingAddress();
-                str += " :";
+//                str += "SMS from " + msgs[i].getOriginatingAddress();
+//                str += " :";
                 str += msgs[i].getMessageBody().toString();
                 str += "\n";
             }
+
             Toast.makeText(context, str, Toast.LENGTH_LONG).show();
             Log.e("atthack", str);
 
@@ -51,12 +52,12 @@ public class SmsReceiver extends BroadcastReceiver {
         builder.setContentTitle(str)
                 .setContentText("where")
                 .setSmallIcon(R.drawable.fine_car_ic)
-                .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.car_test));
+                .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.home_test));
 //                .setLargeIcon(R.drawable.ic_launcher);
 
         NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
-        wearableOptions.setDisplayIntent(NotificationUtil.getNullIntent(mContext, str));
-        wearableOptions.setContentIcon(R.drawable.ic_pause_playcontrol_normal);
+        wearableOptions.setDisplayIntent(NotificationUtil.getPostIntent(mContext, str));
+        wearableOptions.setContentIcon(R.drawable.ic_playnstop);
         wearableOptions.setContentIconGravity(Gravity.RIGHT|Gravity.BOTTOM);
 
         NotificationCompat.Action callPost = new NotificationCompat.Action.Builder(
