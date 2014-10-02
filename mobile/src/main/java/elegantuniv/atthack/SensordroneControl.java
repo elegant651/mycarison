@@ -1354,7 +1354,8 @@ public class SensordroneControl extends Activity {
         builder.setContentTitle(str)
                 .setContentText("where")
                 .setSmallIcon(R.drawable.fine_car_ic)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.car_test));
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.home_test))
+                .setVibrate(new long[] {0, 1000, 50, 2000});
 
         NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
         wearableOptions.setDisplayIntent(NotificationUtil.getPostIntent(this, str));
