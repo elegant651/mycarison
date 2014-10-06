@@ -49,10 +49,11 @@ public class SmsReceiver extends BroadcastReceiver {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
-        builder.setContentTitle(str)
-                .setContentText("where")
+        builder.setContentTitle("auto")
+                .setContentText(str)
+                .setVibrate(new long[] {0, 1000, 50, 2000})
                 .setSmallIcon(R.drawable.fine_car_ic)
-                .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.home_test));
+                .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.car_test));
 //                .setLargeIcon(R.drawable.ic_launcher);
 
         NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
