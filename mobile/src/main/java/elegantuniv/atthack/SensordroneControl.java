@@ -1351,11 +1351,11 @@ public class SensordroneControl extends Activity {
     ////making post call
     private void postWearNotification1(String str){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setContentTitle(str)
-                .setContentText("where")
-                .setSmallIcon(R.drawable.fine_car_ic)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.home_test))
-                .setVibrate(new long[] {0, 1000, 50, 2000});
+        builder.setContentTitle("home")
+                .setContentText(str)
+                .setVibrate(new long[] {0, 1000, 50, 2000})
+                .setSmallIcon(R.drawable.fine_home_ic)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.home_test));
 
         NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
         wearableOptions.setDisplayIntent(NotificationUtil.getPostIntent(this, str));
